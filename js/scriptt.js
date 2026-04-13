@@ -247,6 +247,8 @@
 // });
 
 //26.set the font size of all paragraphs to 18px using javascript.
+// hello ji i am on github my bugdi 
+
 let paragraphs=document.querySelectorAll("p");
 paragraphs.forEach(function(p){
     p.style.fontSize="18px";//it will set the font size of all paragraphs to 18px
