@@ -321,6 +321,8 @@ form.addEventListener("submit",function(dets){
     inputs[3].value
 );
 });
+//after the form we want to create a card for same submission form in which profilr picture will be shown :
+
 
 //4.mouseover:yeh event tab trigger hota heh jab user kisi element par mouse pointer ko le jata heh
 //5.keyup:yeh event tab trigger hota heh jab user kisi key ko release krta heh
