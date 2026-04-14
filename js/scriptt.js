@@ -306,6 +306,7 @@ input.addEventListener("input",function(dets){
 console.log(dets.data);
     }
 });//it will log the current value of the input element to the console whenever it is changed
+
 // if we use backspace to delete the value of the input element then it will log null to the console because backspace does not add any character to the input element it only removes characters from it so it does not trigger the input event with any data but it triggers the input event with null data.
 
 //3.submit:yeh event tab trigger hota heh jab user kisi form ko submit krta heh
@@ -332,6 +333,7 @@ sel.addEventListener("change",function(dets){
     device.textContent=`${dets.target.value} Device Selected`;
     console.log(dets.target.value);
 });//it will log the current value of the select element to the console whenever it is changed and focus is removed from it
+
 
 //7.keydown:yeh event tab trigger hota heh jab user kisi key ko press krta heh
 let h = document.querySelector("h1");
