@@ -329,16 +329,16 @@ let profile=document.createElement("div");
 profile.classList.add("profile");
 
  let img1=document.createElement("img");
- img1.setAttribute("src","https://images.unsplash.com/photo-1558280417-ea782f829e93?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMDY0NDExfHxlbnwwfHx8fHw%3D");
+ img1.setAttribute("src", inputs[0].value);
 
 let hh=document.createElement("h3");
-hh.textContent="kirandeep kaur";
+hh.textContent=inputs[1].value;
 
 let hhh=document.createElement("h5");
-hhh.textContent="creative coder";
+hhh.textContent=inputs[2].value;
 
 let pp=document.createElement("p");
-pp.textContent="from faridkot";    
+pp.textContent=inputs[3].value;    
 
 profile.appendChild(img1);
 card.appendChild(profile);
