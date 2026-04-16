@@ -310,46 +310,86 @@ console.log(dets.data);
 // if we use backspace to delete the value of the input element then it will log null to the console because backspace does not add any character to the input element it only removes characters from it so it does not trigger the input event with any data but it triggers the input event with null data.
 
 //3.submit:yeh event tab trigger hota heh jab user kisi form ko submit krta heh
-let form=document.querySelector("form");
-let inputs=document.querySelectorAll("input");
-let main1=document.querySelector("#main1");
-form.addEventListener("submit",function(dets){
-    dets.preventDefault();//it will prevent the default behavior of the form which is to submit the form and reload the page
-//     console.log(
-//     inputs[0].value,
-//     inputs[1].value,
-//     inputs[2].value,
-//     inputs[3].value
-// );
-//after the form we want to create a card for same submission form in which profilr picture will be shown :
-let card=document.createElement("div");
-card.classList.add("card");
+let form = document.querySelector("form");
+let inputs = document.querySelectorAll("input[type='text']");
+let main1 = document.querySelector("#main1");
 
-let profile=document.createElement("div");
-profile.classList.add("profile");
+form.addEventListener("submit", function (dets) {
+    dets.preventDefault();
 
- let img1=document.createElement("img");
- img1.setAttribute("src", inputs[0].value);
+    let card = document.createElement("div");
+    card.classList.add("card");
 
-let hh=document.createElement("h3");
-hh.textContent=inputs[1].value;
+    let profile = document.createElement("div");
+    profile.classList.add("profile");
 
-let hhh=document.createElement("h5");
-hhh.textContent=inputs[2].value;
+    let img1 = document.createElement("img");
+    img1.src = inputs[0].value;
 
-let pp=document.createElement("p");
-pp.textContent=inputs[3].value;    
+    // fallback if image fails
+    img1.onerror = function () {
+        this.src = "https://via.placeholder.com/40";
+    };
 
-profile.appendChild(img1);
-card.appendChild(profile);
+    let hh = document.createElement("h3");
+    hh.textContent = inputs[1].value;
 
-card.appendChild(hh);
-card.appendChild(hhh);
-card.appendChild(pp);
+    let hhh = document.createElement("h5");
+    hhh.textContent = inputs[2].value;
 
-main1.appendChild(card);
+    let pp = document.createElement("p");
+    pp.textContent = inputs[3].value;
 
+    profile.appendChild(img1);
+    card.appendChild(profile);
+    card.appendChild(hh);
+    card.appendChild(hhh);
+    card.appendChild(pp);
+
+    main1.appendChild(card);
+
+    form.reset(); // clear inputs after submit
 });
+// let form=document.querySelector("form");
+// let inputs=document.querySelectorAll("input");
+// let main1=document.querySelector("#main1");
+// form.addEventListener("submit",function(dets){
+//     dets.preventDefault();//it will prevent the default behavior of the form which is to submit the form and reload the page
+// //     console.log(
+// //     inputs[0].value,
+// //     inputs[1].value,
+// //     inputs[2].value,
+// //     inputs[3].value
+// // );
+// //after the form we want to create a card for same submission form in which profilr picture will be shown :
+// let card=document.createElement("div");
+// card.classList.add("card");
+
+// let profile=document.createElement("div");
+// profile.classList.add("profile");
+
+//  let img1=document.createElement("img");
+//  img1.setAttribute("src", inputs[0].value);
+
+// let hh=document.createElement("h3");
+// hh.textContent=inputs[1].value;
+
+// let hhh=document.createElement("h5");
+// hhh.textContent=inputs[2].value;
+
+// let pp=document.createElement("p");
+// pp.textContent=inputs[3].value;    
+
+// profile.appendChild(img1);
+// card.appendChild(profile);
+
+// card.appendChild(hh);
+// card.appendChild(hhh);
+// card.appendChild(pp);
+
+// main1.appendChild(card);
+
+// });
 //4.mouseover:yeh event tab trigger hota heh jab user kisi element par mouse pointer ko le jata heh
 //5.keyup:yeh event tab trigger hota heh jab user kisi key ko release krta heh
 
