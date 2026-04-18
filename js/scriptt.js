@@ -350,7 +350,7 @@ card.appendChild(pp);
 
 main1.appendChild(card);
 
-});
+});//USED FOR REAL CARD
 //4.mouseover:yeh event tab trigger hota heh jab user kisi element par mouse pointer ko le jata heh
 //5.keyup:yeh event tab trigger hota heh jab user kisi key ko release krta heh
 
