@@ -793,7 +793,7 @@ console.log(double(5));
  console.log(password); // ReferenceError: password is not defined
 
 
-                 Arrays
+                // Arrays
 //arrays are used to store multiple values in a single variable and they are ordered collection of items and they are mutable
 let arr=[1,2,3,4,5];
 console.log(arr[0]);//1

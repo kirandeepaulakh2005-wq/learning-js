@@ -246,48 +246,48 @@ listItems.forEach(function(li,index){
 //or
 let li=document.querySelectorAll("ul li:nth-child(2n)");
 li.forEach(function(item){
-    item.classList.add("highlight");//it will add the highlight class to every even item in the list
-});
+//     item.classList.add("highlight");//it will add the highlight class to every even item in the list
+// });
 
-//26.set the font size of all paragraphs to 18px using javascript.
+// //26.set the font size of all paragraphs to 18px using javascript.
 
-let paragraphs=document.querySelectorAll("p");
-paragraphs.forEach(function(p){
-    p.style.fontSize="18px";//it will set the font size of all paragraphs to 18px
-});
+// let paragraphs=document.querySelectorAll("p");
+// paragraphs.forEach(function(p){
+//     p.style.fontSize="18px";//it will set the font size of all paragraphs to 18px
+// });
 
 
-                //Events and event handling:
-//1.what is an event in javascript?
-//event ek action hota heh jo user ya browser ke dwara trigger hota heh jaise click,mouseover,keydown etc. event ke dwara hum user ke interactions ko handle kr sakte heh aur uske according apne webpage ko respond kr sakte heh
-//browser mein page par koi bhi harkat karo event raise ho jayega.
-//event matlab hota hai koi action hoa
-//event listner ka matlab hai appne koi actionka reaction diya.
+//                 //Events and event handling:
+// //1.what is an event in javascript?
+// //event ek action hota heh jo user ya browser ke dwara trigger hota heh jaise click,mouseover,keydown etc. event ke dwara hum user ke interactions ko handle kr sakte heh aur uske according apne webpage ko respond kr sakte heh
+// //browser mein page par koi bhi harkat karo event raise ho jayega.
+// //event matlab hota hai koi action hoa
+// //event listner ka matlab hai appne koi actionka reaction diya.
 
-                   //event building:
-//1.addEventListener:yeh method ek event listener ko element ke sath attach krta heh jise hum event handler bhi kehte heh jab specified event trigger hota heh to yeh event handler function execute hota heh
-let h1=document.querySelector("h1");
-h1.addEventListener("click",function(){
- h1.style.color="red";//it will change the color of the h1 element to red when it is clicked
-});
+//                    //event building:
+// //1.addEventListener:yeh method ek event listener ko element ke sath attach krta heh jise hum event handler bhi kehte heh jab specified event trigger hota heh to yeh event handler function execute hota heh
+// let h1=document.querySelector("h1");
+// h1.addEventListener("click",function(){
+//  h1.style.color="red";//it will change the color of the h1 element to red when it is clicked
+// });
 
-let p=document.querySelector("p");
-p.addEventListener("click",function(){
-p.style.color="blue";//it will change the color of the p element to blue when it is clicked
-});  
-let p=document.querySelector("p");
-p.addEventListener("dblclick",function(){
-p.style.color="green";
-});//it will change the color of the p element to green when it is clicked
+// let p=document.querySelector("p");
+// p.addEventListener("click",function(){
+// p.style.color="blue";//it will change the color of the p element to blue when it is clicked
+// });  
+// let p=document.querySelector("p");
+// p.addEventListener("dblclick",function(){
+// p.style.color="green";
+// });//it will change the color of the p element to green when it is clicked
 
-//2.removeEventListener:yeh method ek event listener ko element se remove krta heh jise hum event handler bhi kehte heh jab specified event trigger hota heh to yeh event handler function execute nahi hota he h1.addEventListener("click",function(){
-h1.style.color="red";//it will change the color of the h1 element to red when it is clicked
-document.querySelector("p");
-function dblclick(){
-    p.style.color="green";
-}
-p.addEventListener("dblclick",dblclick);
-p.removeEventListener("dblclick",dblclick);//it will remove the event listener from the p element so that when it is double clicked the color will not change to green
+// //2.removeEventListener:yeh method ek event listener ko element se remove krta heh jise hum event handler bhi kehte heh jab specified event trigger hota heh to yeh event handler function execute nahi hota he h1.addEventListener("click",function(){
+// h1.style.color="red";//it will change the color of the h1 element to red when it is clicked
+// document.querySelector("p");
+// function dblclick(){
+//     p.style.color="green";
+// }
+// p.addEventListener("dblclick",dblclick);
+// p.removeEventListener("dblclick",dblclick);//it will remove the event listener from the p element so that when it is double clicked the color will not change to green
 
                     //common events:click,input change,submit,mouseover,keyup
 
