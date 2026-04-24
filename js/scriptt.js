@@ -312,6 +312,7 @@ console.log(dets.data);
 let form=document.querySelector("form");
 let inputs=document.querySelectorAll("input");
 let main1=document.querySelector("#main1");
+
 form.addEventListener("submit",function(dets){
     dets.preventDefault();//it will prevent the default behavior of the form which is to submit the form and reload the page
 //     console.log(
@@ -348,7 +349,14 @@ card.appendChild(pp);
 
 main1.appendChild(card);
 
+// inputs.forEach(fuction(input){
+// if(input.type !=="submit" ){
+// inputs.value="";
+// }
+// })//it is used when i need blank form.
+
 });//USED FOR REAL TIME DATA ENTRY CARD
+
 //4.mouseover:yeh event tab trigger hota heh jab user kisi element par mouse pointer ko le jata heh
 //5.keyup:yeh event tab trigger hota heh jab user kisi key ko release krta heh
 
