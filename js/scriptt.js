@@ -321,7 +321,7 @@ form.addEventListener("submit",function(dets){
 //     inputs[2].value,
 //     inputs[3].value
 // );
-//after the form we want to create a card for same submission form in which profilr picture will be shown :
+//after this form we want to create a card for same submission form in which profilr picture will be shown :
 let card=document.createElement("div");
 card.classList.add("card");
 
