@@ -358,6 +358,7 @@ main1.appendChild(card);
 });//USED FOR REAL TIME DATA ENTRY CARD
 
 //4.mouseover:yeh event tab trigger hota heh jab user kisi element par mouse pointer ko le jata heh
+
 //5.keyup:yeh event tab trigger hota heh jab user kisi key ko release krta heh
 
 //6.change:yeh event tab trigger hota heh jab user kisi input element ke value ko change krta heh aur uske baad input element se focus hata deta heh
