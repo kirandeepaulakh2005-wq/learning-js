@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
                       <!-- //style for event building section -->
-     <style>
+     <!-- <style>
         .kk{
             color:red;
             background-color: antiquewhite;
@@ -62,7 +62,7 @@ input{
 }
 </style> 
 
-                                             <!-- style for submit event  -->
+                                             style for submit event 
 <style>
              *{
     margin: 0;
@@ -75,7 +75,7 @@ html, body{
     width: 100%;
     height: 100%;
 } -->
-#main1{
+<!-- #main1{
     padding: 30px;
     height: 100%;
     width:100%;
@@ -118,13 +118,86 @@ input{
 .card h3 {
     margin: 5px 0;
     font-size: 18px;
+}  -->
+
+
+        <!-- </style>
+
+                         <!-- CSS for mouseover event -->
+<!-- <style>
+             *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "helvetica neue",helvetica,arial,sans-serif;
+} 
+
+html,
+ body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    position: relative;
+    overflow:hidden;
 }
 
+#abcd{
+    position: absolute;
+    transition:all cubic-bezier(0.19, 1, 0.22, 1).2s;
+width: 400px;
+height:400px ;
+background-color: red;
 
-        </style>
+    }
+
+</style> -->
+<style> 
+    *{
+      margin: 0;
+    padding: 0;
+    font-family: "gilroy";
+    box-sizing: border-box;
+} 
+
+html,
+ body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    position:relative;
+    overflow:hidden;
+}
+#main{
+    width:100%;
+    height: 100%;
+    background-color: #222;
+}
+#nav{
+    display:flex;
+     justify-content: space-around;
+    align-items: center;
+   width:100%;
+   height:100%;
+   background-color: #444; 
+}
+a{
+    color:white !important;
+
+}
+button{
+    padding:12px 22px;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    font: weight 600;
+    font-size: 20px;
+}
+</style>
         </head>
 <body>
-                                         <!-- //for event building section -->
+                                         <!-- //for event building section
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit aspernatur itaque et est impedit vitae.</p>
 <button class="buy-now">buy now</button>
 <button disabled>add to chart now</button>
@@ -146,7 +219,7 @@ input{
 </div>
 
                                 <!-- common events section  -->
-<h1>apple</h1>
+<!-- <h1>apple</h1>
  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A eum earum beatae, officia quia ipsum quod ad. Sunt aspernatur vel quo odit sed iure nulla! A recusandae consectetur quo quidem?</p>
 <input type="text" placeholder="enter your name">
 <h3 id="device">Select your device</h3>
@@ -160,10 +233,10 @@ input{
 <div id="main">
     <input type="file" id="fileinp">
     <div id="button">upload file</div>
-</div>
+</div> -->
 
                                         <!-- submit event section creating a card -->
-<div id="main1">
+<!-- <div id="main1">
 <form action="">
     <input type="text" placeholder="profile pic">
     <input type="text" placeholder="Name">
@@ -171,7 +244,29 @@ input{
     <input type="text" placeholder="info. ">
     <input type="submit" >
 </form>
+</div> -->
+
+                        <!-- for mouseover event -->
+<!-- <div id="abcd"></div> -->
+
+                       <!-- for keyup event -->
+<!-- <input type="text" id="myInput" placeholder="Type something">
+
+                           <!-- for event object -->
+<!-- <form>
+    <input type="email">
+    <input type="password">
+    <input type="submit">
+</form>  -->
+                         <!-- for event bubbling and capturing -->
+<div id="main">
+    <div id="nav">
+        <a href="">home</a>
+        <a href="">about</a>
+        <button>click and follow</button>
+    </div>
 </div>
+
    <script src="scriptt.js"></script>
 </body>
 </html>    
