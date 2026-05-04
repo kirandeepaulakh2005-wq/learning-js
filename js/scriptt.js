@@ -544,7 +544,7 @@ setInterval(function(){
    console.log("hello"); 
 },5000);
 
-//clearTimeout:esse hum time limit ko hta dete heh jo hum settTimeout ke through set  krte heh aur  koi bhi funtion nhi chalta.
+//clearTimeout:esse hum time limit ko hta dete heh jo hum settTimeout ke through set krte heh aur koi bhi funtion nhi chalta.
 let tm=setTimeout(function(){
    console.log("hello"); 
 },5000);
