@@ -568,3 +568,29 @@ else{
 }
     
 },500);
+
+                            // localStorage,SessionStorage,and Cookie
+//localstorage->appke browser pr data store krna jo ke browser band hone pr bhi delete nhi hoga (~5mb data stored) always store string only not objects and array.
+//localStorage pr data save kaise krna heh
+localStorage.setItem("name","kiran");
+//data fetch kaise kre
+let val=localStorage.getItem("name");
+//item remove kaise kre
+localStorage.removeItem("name");
+//update kaise kre item ko
+localStorage.setItem("name","kirandeep");
+
+//sessionstorage->yeh aappka data temporarily store kata hai matlab ki tab band hua aur data delete ho jayega(~5mb data stored on it).
+sessionStorage.clear();//sab kuj delete krne ke liye
+sessionStorage.setItem("name","kirn");//data insert krne ke liye 
+
+//cookies->ye bhi data store karta hai and appkka data browser ke cookies naam ki property mein save hota hai and ye cookie concept kam data ya light data ke liye hota heh.
+//cookies~4kb data will be stored through it.
+//cookies mein jo bhi data store karyege woh data page reload par automatically server pr jayega.
+//browser pr search krna hoga sabb
+document.cookie = "name=kiran";
+  
+                      //storing\retrieving vs json
+localStorage.setItem("friends",JSON.stringify(["kiran","jashan","mandeep"]));
+//local storage me hum kabhi bhi array ja fir objects ko store nhi kr sakte ess liye  hun array ko stringify krte heh means string ki form me leke atte heh aur jabb hum local storage se items ko nikalte heh to hume yeh strings ki form me milti heh aur jab hume eska real data chaiye hota heh to hum use krte heh:
+JSON.parse('["kiran","jashan","mandeep"]')
