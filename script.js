@@ -237,7 +237,7 @@ function CreatePencil(name,price,color,company){
  let Pencil3=new CreatePencil("Doms",10,"green","DOMS");
 
 
-                           //classes:
+                           //ES6 classes
 //classes:JavaScript me class ek blueprint hoti hai jisse hum multiple objects create karte hain.
 //constuctor:Ye ek special function hota hai jo object create hote hi automatically run hota hai aur je classes me sabse phele chalta heh.
 
@@ -247,15 +247,13 @@ class CreatePencil1{
         this.comapny=company;
         this.price=price;
         this.color=color;
-
-
     }
     erase(){
-        document.body.querySelectorAll("h1").forEach((elem)=>{
-            if(elem.style.color === "this.color"){
+        document.body.querySelectorAll("h1").forEach((elem) => {
+            if(elem.style.color === this.color){
         elem.remove();
             }
-        })
+        });
     }
     write(text){
         let h1=document.createElement("h1");
@@ -264,5 +262,62 @@ class CreatePencil1{
         document.body.appendChild(h1);
     }
 }
+
 let p1=new CreatePencil1("Natraj","Natraj",10,"red");
 let p2=new CreatePencil1("Apsara","Apsara",15,"blue");
+
+//methods:Method basically ek function hota hai jo object ke andar hota hai.
+let user = {
+    name: "Kiran",
+
+    sayHello: function(){
+        console.log("Hello");
+    }
+};
+
+user.sayHello();
+
+//extends: means ek class dusri class ki properties aur methods use kar sakti hai.
+//super:super ka use parent class ko access karne ke liye hota hai.
+
+class User{
+    constructor(name,address,username,email,role){
+        this.name=name;
+        this.adress=address;
+        this.username=username;
+        this.email=email;
+        this.role="user";
+    }
+
+    checkrole(){
+console.log(`you are a ${this.role}`);
+    }
+    write(text){
+        let h1=document.createElement("h1");
+        h1.textContent=`${this.name}:${text}`;
+        document.body.appendChild(h1);
+    }
+}
+
+class Admin extends User{
+    constructor(name,address,username,email,role){
+        super(name,address,username,email,role);
+        this.role="admin";
+    }
+    remove(){
+        document.querySelector("h1").forEach(function(elem){
+            elem.remove();
+        });
+     }
+}
+
+let u1=new User("kiran","aulakh","kiran123","kiran@gmail.com");
+let u2=new User("jashan","faridkot","jashan123","Jashan@gmail.com");
+let a1=new Admin("admin1","India","admmin123","a@gamil.com");
+
+
+                            //Prototypal inheritance vs classical inheritance
+//inheritance:ekk class se dosari class me kuj lena.
+//classical inheritance:Means classes bnana aur unhe extend kr dena.
+
+//Prototypal inheritance:object-object inheritance krta heh
