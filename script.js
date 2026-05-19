@@ -198,11 +198,71 @@ let fnc2 = abcd.bind(obj5,1,2,3);
 fnc2();
 
 
+                      //object oriented
+//humein shikhna hai factories bnana ,matlab ki app ek bar blueprint bana do  ki har object kaisa dikhagea and hum log naye naye objects with different values bana payege,yahi upar upar se poora kamm hai oops mein aur yeh hota heh object-oriened.
+
+//constuctor functions:esme hum phela letter bada rakhte heh aur hu esse new se chalate heh 
+function CreatePencil(name,price,color,company){
+    this.name=name;
+    this.price=price;
+    this.color=color;
+    this.company=company;
+    this.write=function(text){
+        let h1=document.createElement("h1");
+        h1.textContent=text;
+        h1.style.color=this.color;
+        document.body.append(h1);
+    };
+}
+ let Pencil1= new CreatePencil("nataraj",10,"black","nataraj");
+ let Pencil2=new CreatePencil("Doms",10,"green","DOMS");
+//agr tumara constructor function koi field apne prototypr par attach krle to os constructor se banne wale sabhi new instances yanni ki objects ke pass wo field automatically chali jatti heh.
+
+//prototype:Prototype ek backup object hota hai jahan JS missing properties/methods ko dhundta hai.
+function CreatePencil(name,price,color,company){
+    this.name=name;
+    this.price=price;
+    this.color=color;
+    this.comapny=company;
+     }
+     CreatePencil.prototype.write=function(text){
+        let h1=document.createElement("h1");
+        h1.textContent=text;
+        h1.style.color=this.color;
+        console.log(h1);
+        document.body.append(h1);
+     };
+//yeh hum use krte heh taki memory save ho sake
+ let Pencil= new CreatePencil("nataraj",10,"black","nataraj");
+ let Pencil3=new CreatePencil("Doms",10,"green","DOMS");
 
 
+                           //classes:
+//classes:JavaScript me class ek blueprint hoti hai jisse hum multiple objects create karte hain.
+//constuctor:Ye ek special function hota hai jo object create hote hi automatically run hota hai aur je classes me sabse phele chalta heh.
+
+class CreatePencil1{
+    constructor(name,company,price,color){
+        this.name=name;
+        this.comapny=company;
+        this.price=price;
+        this.color=color;
 
 
-
-
-
-
+    }
+    erase(){
+        document.body.querySelectorAll("h1").forEach((elem)=>{
+            if(elem.style.color === "this.color"){
+        elem.remove();
+            }
+        })
+    }
+    write(text){
+        let h1=document.createElement("h1");
+        h1.textContent=text;
+        h1.style.color=this.color;
+        document.body.appendChild(h1);
+    }
+}
+let p1=new CreatePencil1("Natraj","Natraj",10,"red");
+let p2=new CreatePencil1("Apsara","Apsara",15,"blue");
