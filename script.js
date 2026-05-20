@@ -321,3 +321,179 @@ let a1=new Admin("admin1","India","admmin123","a@gamil.com");
 //classical inheritance:Means classes bnana aur unhe extend kr dena.
 
 //Prototypal inheritance:object-object inheritance krta heh
+//ek object hai app chao to uski sarri props/methods ko inherit kara dete ho dosre object mein.
+
+let coffee={
+    color:"dark",
+    drink:function(){
+        console.log("gut gut gut");
+    },
+
+};
+
+let arabiataCoffee=Object.create(coffee);
+arabiataCoffee.taste="bitter";
+arabiataCoffee.drink();
+
+              //callbacks,promises,and async/await
+ //synchronous vs asynchronous JS
+
+ //koi bhi code js mein line by line chalega aur ye natural pattern bhi hota hai ki code line by line chale,but kabhi  kabarr aise cases atte hai life mein jah par appka code wait krtaa hai and utni der mein agla code chal jatta hai.
+console.log("hey1");
+setTimeout(()=>{
+ console.log("hey2");
+ },2000);
+  console.log("hey3");
+
+//synchronous js:jo code line by line chale woh hota heh synchronous.
+console.log("kiran1");
+console.log("kiran2");
+console.log("kiran3");
+
+//asynchronous js:aisa code jo line by line na chal aur tab chalta heh jabb woh chalne ke liye ready ho jaye.
+console.log("hey1");
+setTimeout(()=>{
+ console.log("hey2");
+ },2000);
+  console.log("hey3");
+
+
+                   //callback pattern  and callback  hell
+//Callback:ekk function ko agr app ekk aur function bhejh de rahe ho parameter mein,to wo parameter walla function kehlaata hai callback.
+function abcd(fnc){
+    setTimeout(fnc,Math.floor(Math.random()*10)*1000);
+    }
+abcd(function(){
+    console.log("hey");
+});
+
+//callback hell:andr tkk call krna .
+
+function profileLekarAao(username,cb){
+    console.log("fetching profile data...");
+    setTimeout(()=>{
+        cb({_id:22222,username,age:21,email:"huihui@gamil.com"});
+    },2000);
+}
+
+function sarePostlekaraao(id,cb){
+    console.log("fetching all posts..")
+    setTimeout(()=>{
+        cb({_id:id,posts:["hey","hello","good morning"]});
+    },3000);
+}
+
+function savedPostsNikallo(id,cb){
+    console.log("fetching saved posts....")
+    setTimeout(()=>{
+        cb({_id:id,saved:[1,2,3,4,5,6]});
+    },3000);
+}
+
+profileLekarAao("harsh",function(profileData) {
+    console.log(profileData);
+   sarePostlekaraao(profileData._id,function(posts){
+    console.log(posts);
+    savedPostsNikallo(profileData._id,function(saved){
+      console.log(saved);
+    })
+   }) ;
+});
+
+                          //promises:resolve,reject,then,catch
+//promises:app ekk promise banate hoh jo ki do states mein se ek sate me ja sakte hai and wo yaa to resolve hoga ya to reject hoga ab wo kya hoga ye to waqqt batayega par humein dono ke liye code likhna padta hai.
+
+let pr=new Promise(function(res,rej){
+    setTimeout(()=>{
+        let rn=Math.floor(Math.random()*10);
+        if(rn>5) res("resolved with"+rn);
+        else rej("rejected with"+rn);
+    },3000);
+});
+ pr
+ .then(function(val){
+    console.log(val);
+ })
+ .catch(function(val){
+    console.log(val);
+ });
+
+                //asyn/await syntax,error handling with try-catch
+//asyn keyword:Jab kisi function ke aage async lagate hain, toh wo function automatically ek Promise return karta hai.
+async function greet() {
+    return "Hello";
+}
+
+greet().then((data) => {
+    console.log(data);
+});
+
+//await:wait ka matlab hota hai:Promise complete hone tak wait karo.
+//await sirf async function ke andar hi use hota hai.
+function getData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data mil gaya");
+        }, 2000);
+    });
+}
+
+async function fetchData() {
+    let result = await getData();
+    console.log(result);
+}
+
+fetchData();
+
+//try-catch :Agar Promise fail ho jaye toh error handle karne ke liye try...catch use karte hain.
+let pr1=new Promise(function(res,rej){
+    setTimeout(()=>{
+        let rn=Math.floor(Math.random()*10);
+        if(rn>5) res("resolved with"+rn);
+        else rej("rejected with"+rn);
+    },3000);
+}); 
+async function abcd(){
+    try{
+        let val=await pr1;
+        console.log(val);
+    }
+    catch(err){
+        console.log(err);
+
+    }
+} 
+abcd(); 
+
+//Async chaining ka matlab hota hai: Ek asynchronous operation complete hone ke baad doosra async operation chalana.
+//JavaScript me ye mainly:
+//.then() chaining se
+//async/await se
+//kiya jata hai.
+
+
+                 //Fetch API+HTTP Basics
+//Fetch API:GET,POST basics:
+//fetch API:yeh ekk url hoti heh yaha se hume data milta heh.
+fetch("https://randomuser.me/api/")
+.then((rawdata)=>{
+  return rawdata.json();
+})
+.then(data=>{
+    console.log(data.results[0].name.first);
+})
+.catch((err)=>{
+    console.log(err);
+});
+
+//if i need mutiple users then using:
+fetch("https://randomuser.me/api/?results=5")
+.then((raw)=>raw.json())
+.then((data)=>console.log(data.results));
+
+
+   
+
+
+
+
