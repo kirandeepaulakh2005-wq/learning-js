@@ -472,7 +472,7 @@ abcd();
 //kiya jata hai.
 
 
-                 //Fetch API+HTTP Basics
+                 //Fetch API + HTTP Basics
 //Fetch API:GET,POST basics:
 //fetch API:yeh ekk url hoti heh yaha se hume data milta heh.
 fetch("https://randomuser.me/api/")
