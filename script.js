@@ -492,14 +492,5 @@ fetch("https://randomuser.me/api/?results=5")
 .then((data)=>console.log(data.results));
 
                      
-                   //design patterns:
-//design patterns:Ye coding problems ko solve karne ke common solutions hote hain.
-
-//1.module pattern:module pattern ek dsign pattern hai jisme hum apna code ek self executing function (IIFE)ke andr likhte hain, taki variables aur functions private rahen.
-//iske andr se hum sirf wahi cheezein return karte hai jo bHr use karni hain.
-//Is pattern ka main fayda hai data hiding(encapsulation)aur clean structure,takki code secure,reusble aur manageable ban sake.
-     
-
-
-
+      
 
