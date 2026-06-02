@@ -89,5 +89,84 @@ let iphone=createProduct("iphone",70000);
 let kitkat=createProduct("kikat",10);
 iphone.buy(6);
 
+//4.observer pattern:Observer Pattern ek behavioral design pattern hai jisme ek object (Subject) apne observers ko notify karta hai jab uski state change hoti hai.
+class YoutubeChannel{
+    constructor(){
+        this.subscribers=[];
+
+    }
+    subscribe(user){
+        this.subscribers.push(user);
+        user.update(`${user.name}, you have subscribed the channel.`);
+    }
+    unsubscriber(user){
+        this.subscribers=this.subscribers.filter((sub) => sub !== user);
+        user.update(`you have unsubscribed the channel.`)
+    }
+    notify(message){
+        this.subscribers.forEach(sub => sub.update(message));
+    }
+}
+
+class User{
+    constructor(name){
+        this.name=name;
+    }
+    update(data){
+        console.log(`${this.name},${data}`);
+    }
+}
+
+let  sheryians=new YoutubeChannel();
+let  user1=new User("kiran");
+let user2=new User("jashan");
+
+sheryians.subscribe(user1);
+sheryians.subscribe(user2);
+
+sheryians.notify("new video is live on the channel.."); 
+sheryians.notify("we are closing the chnnel,because it's april 1st");
+
+
+                         //Performance otimization
+//debouncing->app koi action kr rhe hoh aur app ye nhi chaahte ke har action pr kuj hoh,app chaahte hoh jab bhi apke actions ke beech mein koi specific gap aajeye  tab action perform hoh.
+
+let input=document.querySelector("input");
+
+function debounce(fnc,delay){
+    let timer;
+    return function(...args){
+        clearTimeout(timer);
+        timer=setTimeout(()=>{
+            fnc(...args);
+        },delay);
+    }
+}
+input.addEventListener("input",debounce(function(){
+    console.log("kiran");
+},1000)
+);
+
+//throttling ->interval par chalega means action agr hota raha aur apne ekk  interval bataya to utne interval me appkaeevent chalega.
+
+function throttle(fnc,delay){
+    let timer=0;
+    return function(...args){
+        let now=Date.now();
+        if(now - timer>=delay){
+            timer=now;
+            fnc(...args); 
+        }
+    };
+}
+
+input.addEventListener("input",throttle(function(){
+    console.log("kiran");
+},1000)
+);
+
+
+ 
+
 
 
