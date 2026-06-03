@@ -142,7 +142,8 @@ function debounce(fnc,delay){
         },delay);
     }
 }
-input.addEventListener("input",debounce(function(){
+input.addEventListener("input",
+    debounce(function(){
     console.log("kiran");
 },1000)
 );
