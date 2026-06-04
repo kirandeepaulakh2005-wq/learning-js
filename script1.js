@@ -128,44 +128,186 @@ sheryians.notify("new video is live on the channel..");
 sheryians.notify("we are closing the chnnel,because it's april 1st");
 
 
-                         //Performance otimization
-//debouncing->app koi action kr rhe hoh aur app ye nhi chaahte ke har action pr kuj hoh,app chaahte hoh jab bhi apke actions ke beech mein koi specific gap aajeye  tab action perform hoh.
+//                          //Performance otimization
+// //debouncing->app koi action kr rhe hoh aur app ye nhi chaahte ke har action pr kuj hoh,app chaahte hoh jab bhi apke actions ke beech mein koi specific gap aajeye  tab action perform hoh.
 
-let input=document.querySelector("input");
+// let input=document.querySelector("input");
 
-function debounce(fnc,delay){
-    let timer;
-    return function(...args){
-        clearTimeout(timer);
-        timer=setTimeout(()=>{
-            fnc(...args);
-        },delay);
+// function debounce(fnc,delay){
+//     let timer;
+//     return function(...args){
+//         clearTimeout(timer);
+//         timer=setTimeout(()=>{
+//             fnc(...args);
+//         },delay);
+//     }
+// }
+// input.addEventListener("input",debounce(function(){
+//     console.log("kiran");
+// },1000)
+// );
+
+// //throttling ->interval par chalega means action agr hota raha aur apne ekk  interval bataya to utne interval me appkaeevent chalega.
+
+// function throttle(fnc,delay){
+//     let timer=0;
+//     return function(...args){
+//         let now=Date.now();
+//         if(now - timer>=delay){
+//             timer=now;
+//             fnc(...args); 
+//         }
+//     };
+// }
+
+// input.addEventListener("input",throttle(function(){
+//     console.log("kiran");
+// },1000)
+// );
+
+
+// //Lazy loading images(with intersectionObserver):Lazy Loading ka matlab hai ki images tabhi load hongi jab user un tak scroll karke pahunchta hai. Isse website ki performance improve hoti hai aur initial page load fast hota hai.
+
+
+// //code splitting(into level): Code Splitting ek optimization technique hai jisme hum apne JavaScript code ko chhote-chhote chunks (parts) me divide kar dete hain. Isse browser sirf wahi code load karta hai jo us time required hota hai.
+// const btn=document.querySelector("button");
+//     btn.addEventListener("click",async function(){
+//     let heavy=await import("./heavy.js");
+//     heavy.veryHeavy();
+//     });
+
+
+//  //Avoiding unnecessary reflows and repaints:yeh use hota heh browser ke load ko km krne ke liye. 
+// // Reflow tab hota hai jab browser ko page ka layout dobara calculate karna padta hai. 
+// //Repaint tab hota hai jab element ka appearance change hota hai, lekin layout same rehta hai.
+// const ul=document.querySelector("ul");
+// const space=document.createDocumentFragment();  
+// for(let i=0;i<100;i++){
+//     const li=document.createElement("li");
+// li.textContent=i;
+// space.appendChild(li);
+// }
+// ul.appendChild(space);
+
+
+// //Memory leaks:timers,event listners:
+// //JavaScript me setInterval() aur setTimeout() memory leak ka reason ban sakte hain agar unhe properly clear na kiya jaye.
+// //Jab kisi element par event listener lagate hain aur baad me element remove kar dete hain, listener memory me reh sakta hai.
+// let count =0;
+// const int=setInterval(()=>{
+//     if (count<10){
+//         count++;
+//         console.log(count);
+//         }
+//         else{
+//             clearInterval(int);
+//             console.log("finished");
+//         }
+// },500);
+
+
+                     //Advanced topics and Architecture thinking
+//pure and impure functions
+//Functional Programming basics(map/filter/reduce as pipeline)
+
+//separation of concerns(DOM vs logic):DOM ka code and logic ka colde alag rehna chaiye
+const btn1=document.querySelector("button");
+const ul1=document.querySelector("ul");
+
+function add(n1,n2){
+return n1+n2;
+}
+
+btn1.addEventListener("click",function(){
+    const num1=Math.floor(Math.random()*10);
+    const num2=Math.floor(Math.random()*10);
+
+    let finalAdd=add(num1,num2);
+
+    let li=document.createElement("li");
+    li.textContent=finalAdd;
+    ul1.appendChild(li);
+});
+
+//custom utilities(e.g.,own implementation of map,deep clone)
+//map->ekk array ke top pe chalta heh and us  array ke sabhi memebers us map function ke andr atte hai and map function ek naya array return krta hai and us nye array mein jo bhi map ne return kiya hoga wahi placed hota hai.
+
+//own implementation of map:
+const arr =[1,2,3,4,5];
+function myMap(arr,callback){
+    let newarr=[];
+    for(let i=0;i<arr.length;i++){
+        newarr.push(callback(arr[i],i,arr))
     }
-}
-input.addEventListener("input",
-    debounce(function(){
-    console.log("kiran");
-},1000)
-);
-
-//throttling ->interval par chalega means action agr hota raha aur apne ekk  interval bataya to utne interval me appkaeevent chalega.
-
-function throttle(fnc,delay){
-    let timer=0;
-    return function(...args){
-        let now=Date.now();
-        if(now - timer>=delay){
-            timer=now;
-            fnc(...args); 
-        }
-    };
+    return newarr;
 }
 
-input.addEventListener("input",throttle(function(){
-    console.log("kiran");
-},1000)
-);
+// let ans= myMap([1,2,3,4],(num)=>num+2);
+let ans=myMap(arr,function(val){
+    return val+2;
+});
 
+//deep clone:Deep Clone ka matlab hai kisi object ya array ki completely independent copy banana.
+const student = {
+    name: "Kiran",
+    skills: ["JS", "React"],
+    address: {
+        city: "Delhi"
+    }
+};
+
+const clone = structuredClone(student);
+
+clone.address.city = "Mumbai";
+
+console.log(student.address.city);
+console.log(clone.address.city);
+
+
+//How JS works in browser(Event Loop,web APIs,call stack):
+
+//call Stack(Execution Stack):
+//Js single-threaded hai-> ekk time par ek hi kamm krta hai (synchoronously chalti hai).
+//jab hum function call karte hai-> wo stack ke top pe chala jata hai.
+//Function complete hone ke baad stack se nikal jata hai (pop ho jata hai).
+
+function a(){
+    console.log("a");
+}
+function b(){
+    a();
+ console.log("b");  
+}
+function c(){
+    b();
+    console.log("c");
+}
+c();
+
+//web APIs:Web APIs browser dwara provide ki gayi functionalities hoti hain jo JavaScript ko browser ke features access karne deti hain.
+//for e.g.,console ,setTimeout ,setInterval ,Alert ,prompt
+
+//Event loop:Event Loop JavaScript ka ek mechanism hai jo Call Stack aur Callback Queue ko monitor karta hai aur asynchronous tasks ko execute karwata hai.
+//yeh check krta hai ki call stack free hai ja fir nhi.
+setTimeout(function(){
+    console.log("hey1");
+},1000);
+setTimeout(function(){
+    console.log("hey2");
+},1200);
+setTimeout(function(){
+    console.log("hey3");
+},400);
+setTimeout(function(){
+    console.log("hey4");
+},4000);
+setTimeout(function(){
+    console.log("hey5");
+},5000);
+
+
+
+ 
 
  
 
