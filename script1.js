@@ -128,82 +128,82 @@ sheryians.notify("new video is live on the channel..");
 sheryians.notify("we are closing the chnnel,because it's april 1st");
 
 
-//                          //Performance otimization
-// //debouncing->app koi action kr rhe hoh aur app ye nhi chaahte ke har action pr kuj hoh,app chaahte hoh jab bhi apke actions ke beech mein koi specific gap aajeye  tab action perform hoh.
+                         //Performance otimization
+//debouncing->app koi action kr rhe hoh aur app ye nhi chaahte ke har action pr kuj hoh,app chaahte hoh jab bhi apke actions ke beech mein koi specific gap aajeye  tab action perform hoh.
 
-// let input=document.querySelector("input");
+let input=document.querySelector("input");
 
-// function debounce(fnc,delay){
-//     let timer;
-//     return function(...args){
-//         clearTimeout(timer);
-//         timer=setTimeout(()=>{
-//             fnc(...args);
-//         },delay);
-//     }
-// }
-// input.addEventListener("input",debounce(function(){
-//     console.log("kiran");
-// },1000)
-// );
+function debounce(fnc,delay){
+    let timer;
+    return function(...args){
+        clearTimeout(timer);
+        timer=setTimeout(()=>{
+            fnc(...args);
+        },delay);
+    }
+}
+input.addEventListener("input",debounce(function(){
+    console.log("kiran");
+},1000)
+);
 
-// //throttling ->interval par chalega means action agr hota raha aur apne ekk  interval bataya to utne interval me appkaeevent chalega.
+//throttling ->interval par chalega means action agr hota raha aur apne ekk  interval bataya to utne interval me appkaeevent chalega.
 
-// function throttle(fnc,delay){
-//     let timer=0;
-//     return function(...args){
-//         let now=Date.now();
-//         if(now - timer>=delay){
-//             timer=now;
-//             fnc(...args); 
-//         }
-//     };
-// }
+function throttle(fnc,delay){
+    let timer=0;
+    return function(...args){
+        let now=Date.now();
+        if(now - timer>=delay){
+            timer=now;
+            fnc(...args); 
+        }
+    };
+}
 
-// input.addEventListener("input",throttle(function(){
-//     console.log("kiran");
-// },1000)
-// );
-
-
-// //Lazy loading images(with intersectionObserver):Lazy Loading ka matlab hai ki images tabhi load hongi jab user un tak scroll karke pahunchta hai. Isse website ki performance improve hoti hai aur initial page load fast hota hai.
+input.addEventListener("input",throttle(function(){
+    console.log("kiran");
+},1000)
+);
 
 
-// //code splitting(into level): Code Splitting ek optimization technique hai jisme hum apne JavaScript code ko chhote-chhote chunks (parts) me divide kar dete hain. Isse browser sirf wahi code load karta hai jo us time required hota hai.
-// const btn=document.querySelector("button");
-//     btn.addEventListener("click",async function(){
-//     let heavy=await import("./heavy.js");
-//     heavy.veryHeavy();
-//     });
+//Lazy loading images(with intersectionObserver):Lazy Loading ka matlab hai ki images tabhi load hongi jab user un tak scroll karke pahunchta hai. Isse website ki performance improve hoti hai aur initial page load fast hota hai.
 
 
-//  //Avoiding unnecessary reflows and repaints:yeh use hota heh browser ke load ko km krne ke liye. 
-// // Reflow tab hota hai jab browser ko page ka layout dobara calculate karna padta hai. 
-// //Repaint tab hota hai jab element ka appearance change hota hai, lekin layout same rehta hai.
-// const ul=document.querySelector("ul");
-// const space=document.createDocumentFragment();  
-// for(let i=0;i<100;i++){
-//     const li=document.createElement("li");
-// li.textContent=i;
-// space.appendChild(li);
-// }
-// ul.appendChild(space);
+//code splitting(into level): Code Splitting ek optimization technique hai jisme hum apne JavaScript code ko chhote-chhote chunks (parts) me divide kar dete hain. Isse browser sirf wahi code load karta hai jo us time required hota hai.
+const btn=document.querySelector("button");
+    btn.addEventListener("click",async function(){
+    let heavy=await import("./heavy.js");
+    heavy.veryHeavy();
+    });
 
 
-// //Memory leaks:timers,event listners:
-// //JavaScript me setInterval() aur setTimeout() memory leak ka reason ban sakte hain agar unhe properly clear na kiya jaye.
-// //Jab kisi element par event listener lagate hain aur baad me element remove kar dete hain, listener memory me reh sakta hai.
-// let count =0;
-// const int=setInterval(()=>{
-//     if (count<10){
-//         count++;
-//         console.log(count);
-//         }
-//         else{
-//             clearInterval(int);
-//             console.log("finished");
-//         }
-// },500);
+ //Avoiding unnecessary reflows and repaints:yeh use hota heh browser ke load ko km krne ke liye. 
+// Reflow tab hota hai jab browser ko page ka layout dobara calculate karna padta hai. 
+//Repaint tab hota hai jab element ka appearance change hota hai, lekin layout same rehta hai.
+const ul=document.querySelector("ul");
+const space=document.createDocumentFragment();  
+for(let i=0;i<100;i++){
+    const li=document.createElement("li");
+li.textContent=i;
+space.appendChild(li);
+}
+ul.appendChild(space);
+
+
+//Memory leaks:timers,event listners:
+//JavaScript me setInterval() aur setTimeout() memory leak ka reason ban sakte hain agar unhe properly clear na kiya jaye.
+//Jab kisi element par event listener lagate hain aur baad me element remove kar dete hain, listener memory me reh sakta hai.
+let count =0;
+const int=setInterval(()=>{
+    if (count<10){
+        count++;
+        console.log(count);
+        }
+        else{
+            clearInterval(int);
+            console.log("finished");
+        }
+},500);
 
 
                      //Advanced topics and Architecture thinking
@@ -272,7 +272,7 @@ console.log(clone.address.city);
 //Function complete hone ke baad stack se nikal jata hai (pop ho jata hai).
 
 function a(){
-    console.log("a");
+console.log("a");
 }
 function b(){
     a();

@@ -484,7 +484,7 @@ document.getElementById("parent").addEventListener("click", function(e) {
 });
 
 
-                         PRACTICE
+                        //  PRACTICE
 // live character counter:
 
 let inp = document.querySelector("input");
@@ -596,3 +596,4 @@ localStorage.setItem("friends",JSON.stringify(["kiran","jashan","mandeep"]));
 JSON.parse('["kiran","jashan","mandeep"]')
 
 
+                
