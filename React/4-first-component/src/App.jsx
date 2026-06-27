@@ -1,15 +1,24 @@
 import './App.css'
-import Heading from './components/heading'
+import {Dangerbutton, Successbutton} from './components/Buttons'
+import DynamicComponent from './components/DynamicComponent'
+import Heading from './components/Heading'
 import Paragraph from './components/Paragraph'
-
+import StudentList from './components/StudentList'
+import RandomNumber from './components/RandomNumber'
 function App() {
 
   return (
-    <>
+    <div>
     <Heading />
+    <RandomNumber/>
+    <RandomNumber/>
+    <RandomNumber/>
     <Paragraph/>
-    <button>Click Me</button>
-    </>
+    <Dangerbutton/>
+    <Successbutton/>
+    <DynamicComponent/>
+    <StudentList/>
+    </div>
   )
 }
     
