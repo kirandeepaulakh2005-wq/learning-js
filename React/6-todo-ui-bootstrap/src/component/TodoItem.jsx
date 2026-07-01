@@ -7,7 +7,7 @@ const TodoItem = ({id,todoText,todoDate}) =>{
     </div>
     <div class="col-3"> {todoDate}</div>
      <div class="col-2">
-        <Button btnType='danger'btnText='Delete'/>
+        <Button btnType='Danger'btnText='Delete'/>
      </div>
      </div>
      </div>

@@ -1,7 +1,5 @@
-import './Button.css';
 const Button=({btnType,btnText,handler})=>{
-    
-    if(btnType==='success'){
+if(btnType==='success'){
     return<button className="btn btn-success" onClick={handler}>{btnText}</button>;
 }
 else if(btnType==='Danger'){
