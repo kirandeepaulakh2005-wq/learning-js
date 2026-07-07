@@ -1,11 +1,11 @@
 const Button=({btnType,btnText,handler})=>{
 if(btnType==='success'){
-    return<button className="btn btn-success" onClick={handler}>{btnText}</button>;
+    return<button className="btn btn-success button" onClick={handler}>{btnText}</button>;
 }
 else if(btnType==='Danger'){
-return<button className="btn btn-danger" onClick={handler}>{btnText}</button> ;
+return<button className="btn btn-danger button" onClick={handler}>{btnText}</button> ;
 }else{
-    return<button className="btn btn-primary" onClick={handler}>{btnText}</button>;
+    return<button className="btn btn-primary button" onClick={handler}>{btnText}</button>;
 }
 };
 export default Button;

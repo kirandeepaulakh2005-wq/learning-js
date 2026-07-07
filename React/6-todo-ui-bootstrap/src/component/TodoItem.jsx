@@ -1,13 +1,17 @@
 import Button from "./Button";
 
 const TodoItem = ({id,todoText,todoDate}) =>{
-    return <div class="container">
-  <div class="row">
-    <div class="col-5 text-truncate">{todoText}
+
+  const deleteHandler =()=>{
+    console.log(`Trying to delete ${id} ${todoText}`);
+  }
+    return <div className="container">
+  <div className="row kg-row">
+    <div className="col-5 text-truncate">{todoText}
     </div>
-    <div class="col-3"> {todoDate}</div>
-     <div class="col-2">
-        <Button btnType='Danger'btnText='Delete'/>
+    <div className="col-3"> {todoDate}</div>
+     <div className="col-2">
+        <Button btnType="Danger" btnText="Delete" handler={deleteHandler}/>
      </div>
      </div>
      </div>
